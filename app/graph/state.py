@@ -6,4 +6,4 @@ class RecruitState(TypedDict):
     job_description: str
     score: float
     decision: str
-    candidate_id: Optional[int]
+    candidate_id: Optional[int] 

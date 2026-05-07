@@ -17,4 +17,4 @@ workflow.add_edge("extract_skills", "score")
 workflow.add_edge("score", "decision")
 workflow.add_edge("decision", END)
 
-app = workflow.compile()
+app = workflow.compile() 
