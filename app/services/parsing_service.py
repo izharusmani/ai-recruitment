@@ -19,4 +19,4 @@ def parse_resume(text: str):
     try:
         return json.loads(result)
     except:
-        return {"error": "Invalid JSON from LLM", "raw": result}
+        return {"error": "Invalid JSON from LLM", "raw": result} 

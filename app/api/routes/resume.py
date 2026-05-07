@@ -28,4 +28,4 @@ def upload_resume(
     db.commit()
     db.refresh(resume)
 
-    return resume
+    return resume 

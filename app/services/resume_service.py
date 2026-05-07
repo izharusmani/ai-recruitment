@@ -18,4 +18,4 @@ def process_resume(file):
         "file_path": file_path,
         "extracted_text": extracted_text,
         "parsed_data": parsed_data
-    }
+    } 

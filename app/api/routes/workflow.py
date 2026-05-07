@@ -10,4 +10,4 @@ def run_resume_workflow(
     job_description: str = Form(None)
 ):
     result = process_resume_workflow(file, job_description)
-    return result
+    return result 

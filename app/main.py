@@ -26,4 +26,4 @@ app.include_router(analyze_resume_router.router)
 # Root endpoint (optional)
 @app.get("/")
 def root():
-    return {"message": "AI Recruitment API is running 🚀"}
+    return {"message": "AI Recruitment API is running 🚀"} 

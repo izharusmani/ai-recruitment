@@ -15,4 +15,4 @@ def calculate_match(resume_text, jd_text):
     Give matching score.
     """
 
-    return ask_llm(user_prompt=user_prompt, system_prompt=JOB_MATCH_PROMPT)
+    return ask_llm(user_prompt=user_prompt, system_prompt=JOB_MATCH_PROMPT) 
