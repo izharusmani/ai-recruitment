@@ -1,20 +1,57 @@
 from langgraph.graph import StateGraph, END
-from app.graph.state import RecruitState
-from app.graph.nodes import extract_skills_node, scoring_node, decision_node
 
-workflow = StateGraph(RecruitState)
+from app.graph.state import RecruitmentState
 
-# nodes
-workflow.add_node("extract_skills", extract_skills_node)
-workflow.add_node("score", scoring_node)
-workflow.add_node("decision", decision_node)
+from app.graph.nodes import (
+    parse_resume_node,
+    matching_node,
+    decision_node
+)
 
-# entry point
-workflow.set_entry_point("extract_skills")
+# =========================
+# GRAPH
+# =========================
+workflow = StateGraph(RecruitmentState)
 
-# flow
-workflow.add_edge("extract_skills", "score")
-workflow.add_edge("score", "decision")
-workflow.add_edge("decision", END)
+# =========================
+# NODES
+# =========================
+workflow.add_node(
+    "parse_resume",
+    parse_resume_node
+)
 
-app = workflow.compile() 
+workflow.add_node(
+    "match_candidate",
+    matching_node
+)
+
+workflow.add_node(
+    "decision",
+    decision_node
+)
+
+# =========================
+# EDGES
+# =========================
+workflow.set_entry_point("parse_resume")
+
+workflow.add_edge(
+    "parse_resume",
+    "match_candidate"
+)
+
+workflow.add_edge(
+    "match_candidate",
+    "decision"
+)
+
+workflow.add_edge(
+    "decision",
+    END
+)
+
+# =========================
+# COMPILE
+# =========================
+app_graph = workflow.compile()

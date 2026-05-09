@@ -10,7 +10,12 @@ class Resume(Base):
 
     id = Column(Integer, primary_key=True, index=True)
 
-    candidate_id = Column(Integer, ForeignKey("candidates.id"), nullable=False)
+    candidate_id = Column(
+        Integer,
+        ForeignKey("candidates.id"),
+        nullable=False,
+        unique=True
+    )
 
     file_path = Column(String, nullable=False)
 
@@ -21,4 +26,4 @@ class Resume(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     # Relationship
-    candidate = relationship("Candidate", backref="resumes")
+    candidate = relationship("Candidate", backref="resume")

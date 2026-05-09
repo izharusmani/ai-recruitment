@@ -1,9 +1,16 @@
-from typing import TypedDict, Optional, List
+from typing import TypedDict, Optional
 
-class RecruitState(TypedDict):
+
+class RecruitmentState(TypedDict):
+
+    candidate_id: int
+
     resume_text: str
-    skills: List[str]
+
+    parsed_data: dict
+
     job_description: str
-    score: float
+
+    match_score: str
+
     decision: str
-    candidate_id: Optional[int] 

@@ -6,6 +6,7 @@ class Settings(BaseSettings):
     SECRET_KEY: str
     DEBUG: bool = False
     GROQ_API_KEY: str
+    GEMINI_API_KEY: str
     # Future use
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
     MODEL_NAME: str
